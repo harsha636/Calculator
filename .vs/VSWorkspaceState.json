@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Calculator",
+    "\\CalculatorApp",
+    "\\CalculatorApp\\static",
+    "\\CalculatorApp\\static\\css",
+    "\\CalculatorApp\\templates"
+  ],
+  "SelectedNode": "\\CalculatorApp\\templates\\home.html",
+  "PreviewInSolutionExplorer": false
+}

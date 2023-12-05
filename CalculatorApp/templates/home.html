@@ -1,0 +1,165 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Calculator</title>
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap core CSS -->
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+</head>
+
+
+
+<body>
+ 
+        <div class="container">
+            <nav class="navbar navbar-light bg-light" style="background-color: #68edf2;">
+                <h1 align="center" style="color: black;">Calculator</h1>
+            </nav>
+        </div>
+    
+
+    
+    <section id="second">
+        <form class="" action="calculation" method="post">
+            {% csrf_token %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-2 left">
+
+                    </div>
+                    <div class="col-sm-8 middle">
+                        <div class="result">
+                            <span id="ques">{{ values }}</span>
+                            <input type="text" name="values" id="result" placeholder="0" value={{ result }}>
+                        </div>
+                        <div class="keypad">
+                            <div class="row">
+                                <div class="col-sm-1">
+
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block spc_btn" id="left_small" onclick="insertTextInInputValue('(');">(</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block spc_btn" onclick="insertTextInInputValue(')');">)</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block spc_btn" onclick="insertTextInInputValue('%');">%</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block spc_btn" onclick="insertTextInInputValue('AC')">AC</button>
+                                </div>
+                                <div class="col-sm-1">
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block num_btn" onclick="insertTextInInputValue(7);">7</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block num_btn" onclick="insertTextInInputValue(8);">8</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block num_btn" onclick="insertTextInInputValue(9);">9</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block spc_btn" onclick="insertTextInInputValue('/');">&#247</button>
+                                </div>
+                                <div class="col-sm-1">
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-1">
+
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block num_btn" onclick="insertTextInInputValue(4);">4</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block num_btn" onclick="insertTextInInputValue(5);">5</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block num_btn" onclick="insertTextInInputValue(6);">6</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block spc_btn" onclick="insertTextInInputValue('x');">&#215;</button>
+                                </div>
+                                <div class="col-sm-1">
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block num_btn" onclick="insertTextInInputValue(1);">1</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block num_btn" onclick="insertTextInInputValue(2);">2</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block num_btn" onclick="insertTextInInputValue(3);">3</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block spc_btn" onclick="insertTextInInputValue('-');">-</button>
+                                </div>
+                                <div class="col-sm-1">
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block num_btn" onclick="insertTextInInputValue(0);">0</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block spc_btn" onclick="insertTextInInputValue('.');">.</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="submit" class="btn btn-block btn-primary equal_btn">=</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-block spc_btn" onclick="insertTextInInputValue('+');">+</button>
+                                </div>
+                                <div class="col-sm-1">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-2 right">
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+</body>
+
+<script type="text/javascript">
+    function insertTextInInputValue(buttonValueIs) {
+        if (buttonValueIs == "AC") {
+            document.getElementById('ques').textContent = '';
+            document.getElementById('result').value = '';
+        } else {
+            var inputElementIs = document.getElementById("result");
+            inputElementIs.value = inputElementIs.value + buttonValueIs;
+        }
+    }
+</script>
+
+</html>
